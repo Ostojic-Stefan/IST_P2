@@ -99,7 +99,7 @@ aside button {
     text-align: center;
 }
 
-.main-area #app .item{
+.single-item {
     font-size: 24px;
 
     padding: 16px 32px;

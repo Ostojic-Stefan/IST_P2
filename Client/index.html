@@ -42,18 +42,25 @@
             <div class="header">
                 <h1>Lista Preduzeca</h1>
             </div>
-            <div id="app">
-                <template id="item-list">
-                    <div class="item">
-                        <span>PIB: </span>
-                        <span>Ime Prezime: </span>
-                        <span>Kontakt Telefon: </span>
-                        <span>Email: </span>
-                        <span>Naziv: </span>
-                        <span>Adresa: </span>
-                    </div>
-                </template>
-            </div>        
+
+            <template id="single-item">
+                <div class="single-item">
+                    <span class="pib">PIB: </span>
+                    <span class="name">Ime Prezime: </span>
+                    <span class="phone">Kontakt Telefon: </span>
+                    <span class="email">Email: </span>
+                    <span class="companyName">Naziv: </span>
+                    <span class="address">Adresa: </span>
+                </div>
+            </template>
+
+            <template id="item-list">
+                <div class="item-container"></div>
+            </template>
+
+            <!-- HOST ELEMENT -->
+            <div id="app"></div>       
+
         </div>
     </main>
 </body>
