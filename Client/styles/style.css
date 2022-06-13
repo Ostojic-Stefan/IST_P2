@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #202020;
+    color: #fff;
+}
+
+header {
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: #262626;
+    /* background: linear-gradient(180deg,#383838c0 50%, #202020); */
+}
+
+button {
+    font-size: 18px;
+    padding: 8px 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+
+.container {
+    margin: 0 auto;
+    height: 100vh;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+.container aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 250px;
+
+    font-size: 20px;
+    background-color: #262626;
+
+}
+
+aside input[type=text] {
+    border: none;
+    width: 80%;
+    height: 120%;
+    padding-left: 4px;
+    font-size: 16px;
+}
+
+aside button {
+    width: 80%;
+}
+
+
+.aside-container {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.container aside input {
+    display: inline;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-left: 28px;
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-area .header {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.main-area #app .item{
+    font-size: 24px;
+
+    padding: 16px 32px;
+
+    border: 2px solid #626262;
+    border-radius: 10px;
+
+    background-color: #262626;
+    
+    max-width: 1200px;
+    margin: 32px auto;
+
+    display: flex;
+    flex-direction: column;
+}

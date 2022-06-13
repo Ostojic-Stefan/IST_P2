@@ -4,10 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
     <script type="module" src="./dist/index.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-
+    <header>
+        <h1>IST</h1>
+        <div>
+            <button>Unesi Preduzece</button>
+            <button>Prikazi Sva Preduzeca</button>
+        </div>
+    </header>
+    <main class="container">
+        <aside>
+            <div class="aside-container">
+                <h2>Pretrazi</h2>
+                <div class="wrapper">
+                    <div class="control">
+                        <input type="radio" name="unos">
+                            <span>PIB</span>    
+                        </input>
+                    </div>
+                    <div class="control">
+                        <input type="radio" name="unos">
+                            <span>Naziv</span> 
+                        </input>
+                    </div>
+                </div>
+                <div class="control">
+                    <input type="text">
+                </div>
+                <button>Pretrazi</button>
+            </div>
+        </aside>
+        <div class="main-area">
+            <div class="header">
+                <h1>Lista Preduzeca</h1>
+            </div>
+            <div id="app">
+                <template id="item-list">
+                    <div class="item">
+                        <span>PIB: </span>
+                        <span>Ime Prezime: </span>
+                        <span>Kontakt Telefon: </span>
+                        <span>Email: </span>
+                        <span>Naziv: </span>
+                        <span>Adresa: </span>
+                    </div>
+                </template>
+            </div>        
+        </div>
+    </main>
 </body>
 </html>
