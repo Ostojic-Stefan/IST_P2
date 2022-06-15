@@ -1,26 +1,8 @@
 import Preduzece from "./Preduzece.js";
 import IRepository from "./types/IRepository.js";
+import Observable from "./types/Observable.js";
 
-type Listener<T> = (items: T) => void;
-
-
-abstract class Observable<T> {
-    protected listeners: Array<Listener<T>> = [];
-
-    addListenerOnCreate(listenerFn: Listener<T>) {
-        this.listeners.push(listenerFn);
-    }
-
-    // addListenerOnUpdate(listenerFn: Listener<T>) {
-    //     this.listeners.push(listenerFn);
-    // }
-
-    abstract updateListeners(t : T): void;
-}
-
-
-
-export default class MockRepository extends Observable<Preduzece> implements IRepository {
+export default class MockRepository extends Observable<Array<Preduzece>> implements IRepository {
 
     private constructor() {
         super();
@@ -39,24 +21,16 @@ export default class MockRepository extends Observable<Preduzece> implements IRe
     }
 
 
-    // Observer region
+    // Observer
 
-    addListenerOnCreate(listener: Listener<Preduzece>) {
-        this.listeners.push(listener);
-    }
-
-    addListenerOnUpdate(_listenerFn: Listener<Preduzece>): void {
-        
-    }
-    
-    updateListeners(preduzece: Preduzece): void {
+    updateListeners(preduzeca: Array<Preduzece>): void {
         for (let listener of this.listeners) {
-            listener(preduzece);
+            listener(preduzeca);
         }
     }
 
 
-    // REPOSITORY region
+    // REPOSITORY
 
     allPreduzeca() : Array<Preduzece> {
         return this.preduzeca;
@@ -68,15 +42,15 @@ export default class MockRepository extends Observable<Preduzece> implements IRe
     
     postPreduzece(preduzece: Preduzece) : void {
         this.preduzeca.push(preduzece);
-        this.updateListeners(preduzece);
+        this.updateListeners(this.preduzeca.slice());
     }
     
-    updatePreduzece(_pib: string, _preduzecePartial: Partial<Preduzece>) : void {
-        // const preduzeceIndex = this.preduzeca.findIndex(p => p.pib === pib);
-        // const updated = { ...this.preduzeca[preduzeceIndex], ...preduzecePartial };
-        // this.preduzeca[preduzeceIndex] = updated;
+    updatePreduzece(pib: string, preduzecePartial: Partial<Preduzece>) : void {
+        const foundObj = this.preduzeca[this.preduzeca.findIndex(p => p.pib === pib)];
 
-        // this.updateListeners();
+        if (foundObj) foundObj.update(preduzecePartial);
+
+        this.updateListeners(this.preduzeca);
     }
 
 
@@ -85,11 +59,4 @@ export default class MockRepository extends Observable<Preduzece> implements IRe
             this.postPreduzece(p);
         }
     }
-
-    // TEST
-
-    log() {
-        console.log(this.preduzeca);
-    }
-
 }

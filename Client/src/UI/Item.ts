@@ -2,18 +2,19 @@
 import IRenderable from "../types/IRenderable.js";
 import Component from "./Component.js";
 
-export default class Item<T extends IRenderable<HTMLDivElement>> extends Component<HTMLDivElement, HTMLDivElement> {
-    
-    private item: T;
+export default class Item<T extends IRenderable<HTMLDivElement>> extends Component<HTMLDivElement> {
+    private data: T;
 
-    constructor(hostElementId: string, item: T) {
-        super('single-item', hostElementId);
-        this.item = item;
+    constructor(templateId: string, data: T) {
+        super(templateId);
+        this.data = data;
 
         this.render();
     }
 
     render(): void {
-        this.item.render(this.element);
+        console.log(this.element);
+        
+        this.data.render(this.element);
     }
 }

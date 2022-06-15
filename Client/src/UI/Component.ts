@@ -1,18 +1,16 @@
-export default abstract class Component<THostElement extends HTMLElement, UParentElement extends HTMLElement> {
+export default abstract class Component<TParentElement extends HTMLElement> {
+    // Single Item
     protected templateElement: HTMLTemplateElement;
-    protected hostElement: THostElement;
-    protected element: UParentElement;
 
-    constructor(templateId: string, hostElementId: string) {
+    // First child element of the template
+    protected element: TParentElement;
+
+    constructor(templateId: string) {
         this.templateElement = document.getElementById(templateId) as HTMLTemplateElement;
-        this.hostElement = document.getElementById(hostElementId) as THostElement;
-        const importedNode = document.importNode(this.templateElement.content, true);
-        this.element = importedNode.firstElementChild as UParentElement;
-        this.attach();
-    }
 
-    private attach() {
-        this.hostElement.insertAdjacentElement('beforeend', this.element);
+        const importedNode = document.importNode(this.templateElement.content, true);
+
+        this.element = importedNode.firstElementChild as TParentElement;
     }
 
     abstract render(): void;

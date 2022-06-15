@@ -12,8 +12,8 @@
     <header>
         <h1>IST</h1>
         <div>
-            <button>Unesi Preduzece</button>
-            <button>Prikazi Sva Preduzeca</button>
+            <button id="btn-unesi">Unesi Preduzece</button>
+            <button id="btn-prikazi">Prikazi Sva Preduzeca</button>
         </div>
     </header>
     <main class="container">
@@ -43,25 +43,59 @@
                 <h1>Lista Preduzeca</h1>
             </div>
 
-            <template id="single-item">
-                <div class="single-item">
-                    <span class="pib">PIB: </span>
-                    <span class="name">Ime Prezime: </span>
-                    <span class="phone">Kontakt Telefon: </span>
-                    <span class="email">Email: </span>
-                    <span class="companyName">Naziv: </span>
-                    <span class="address">Adresa: </span>
-                </div>
-            </template>
-
-            <template id="item-list">
-                <div class="item-container"></div>
-            </template>
-
             <!-- HOST ELEMENT -->
             <div id="app"></div>       
 
         </div>
     </main>
+
+    <template id="single-item">
+        <div class="single-item">
+            <span class="pib">PIB: </span>
+            <span class="name">Ime Prezime: </span>
+            <span class="phone">Kontakt Telefon: </span>
+            <span class="email">Email: </span>
+            <span class="companyName">Naziv: </span>
+            <span class="address">Adresa: </span>
+        </div>
+    </template>
+
+    <template id="item-list">
+        <div class="item-container"></div>
+    </template>
+
+    <template id="form">
+        <form>
+            <div class="form-control">
+                <label for="ime">Ime: </label>
+                <input type="text" id="ime">
+            </div>
+            <div class="form-control">
+                <label for="prezime">Prezime: </label>
+                <input type="text" id="prezime">
+            </div>
+            <div class="form-control">
+                <label for="telefon">Telefon: </label>
+                <input type="text" id="telefon">
+            </div>
+            <div class="form-control">
+                <label for="email">Email: </label>
+                <input type="email" id="email">
+            </div>
+            <div class="form-control">
+                <label for="naziv">Naziv: </label>
+                <input type="text" id="naziv">
+            </div>
+            <div class="form-control">
+                <label for="adresa">Adresa: </label>
+                <input type="text" id="adresa">
+            </div>
+            <div class="form-control">
+                <button id="add-preduzece">Dodaj</button>
+            </div>
+        </form>
+    </template>
+
+
 </body>
 </html>
