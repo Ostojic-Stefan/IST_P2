@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Server.Data;
+using Server.Dtos;
 using Server.Interfaces;
 using Server.Models;
 
@@ -17,39 +18,45 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllPreduzeca()
+        public IActionResult GetAllPreduzeca([FromQuery] PreduzeceQuery query)
         {
+            if (!string.IsNullOrEmpty(query.pib))
+            {
+                Preduzece? pred = _repo.GetPreduzeceByPib(query.pib);
+                if (pred == null)
+                    return NotFound();
+
+                return Ok(pred);
+            }
+
+            else if (!string.IsNullOrEmpty(query.naziv))
+            {
+                Preduzece? pred = _repo.GetPreduzeceByNaziv(query.naziv);
+                if (pred == null)
+                    return NotFound();
+                return Ok(pred);
+            }
+
             return Ok(_repo.GetAllPreduzeca());
         }
 
-        [HttpGet("pib")]
-        public IActionResult GetPreduzeceByPib(string pib)
-        {
-            Preduzece? pred = _repo.GetPreduzeceByPib(pib);
-
-            if (pred == null)
-                return NotFound();
-
-            return Ok(pred);
-        }
-
-        [HttpGet("naziv")]
-        public IActionResult GetPreduzeceByNaziv(string naziv)
-        {
-            Preduzece? pred = _repo.GetPreduzeceByNaziv(naziv);
-
-            if (pred == null)
-                return NotFound();
-
-            return Ok(pred);
-        }
-
         [HttpPost]
-        public IActionResult PostPreduzece(Preduzece pred)
+        public IActionResult PostPreduzece(PreduzeceDto pred)
         {
             _repo.PostPreduzece(pred);
             return Ok("Successfully Created");
         }
 
+        [HttpPut("pib")]
+        public IActionResult UpdatePreduzece(string pib, PreduzeceDto preduzece)
+        {
+            var pred = _repo.GetPreduzeceByPib(pib);
+
+            if (pred == null)
+                return NotFound();
+
+            _repo.UpdatePreduzece(pred, preduzece);
+            return Ok();
+        }
     }
 }
