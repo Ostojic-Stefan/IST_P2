@@ -1,6 +1,6 @@
-// import Preduzece from "../Preduzece.js";
-// import Component from "./Component.js";
-// import Item from "./Item.js";
+// import Preduzece from "../Preduzece";
+// import Component from "./Component";
+// import Item from "./Item";
 
 // export default class ItemList extends Component<HTMLDivElement> {
 

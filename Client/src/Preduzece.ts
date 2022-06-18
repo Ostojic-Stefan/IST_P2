@@ -1,4 +1,14 @@
-export default class Preduzece {
+export interface IPreduzece {
+    pib: string,
+    ime: string,
+    prezime: string,
+    telefon: string,
+    email: string,
+    naziv: string,
+    adresa: string
+}
+
+export class Preduzece {
     constructor(
         public pib: string,
         public ime: string,
@@ -6,7 +16,7 @@ export default class Preduzece {
         public telefon: string,
         public email: string,
         public naziv: string,
-        public adresa: string,
+        public adresa: string
     ) {}
 
     public populateElement<T extends HTMLElement>(parentElement: T) {
@@ -26,4 +36,13 @@ export default class Preduzece {
         this.naziv    =  partial.naziv   ||  this.naziv;
         this.adresa   =  partial.adresa  ||  this.adresa;
     }
+
+    static ConstructPreduzece(p: IPreduzece): Preduzece {
+        return new Preduzece(p.pib, p.ime, p.prezime, p.telefon, p.email, p.naziv, p.adresa);
+    }
+
+    static ConstructPreduzeceArray(p: IPreduzece[]): Array<Preduzece> {
+        return p.map(pred => this.ConstructPreduzece(pred));
+    }
+
 }

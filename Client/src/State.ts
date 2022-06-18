@@ -1,4 +1,4 @@
-import Observable from "./types/Observable.js";
+import Observable from "./types/Observable";
 
 export enum State { LIST, INPUT }
 

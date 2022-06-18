@@ -1,8 +1,6 @@
-import Preduzece from "../Preduzece.js";
+import {Preduzece} from "../Preduzece";
 
 export default interface IRepository {
-    allPreduzeca(): Array<Preduzece>;
-    getPreduzeceByPib(pib: string): Preduzece| undefined;
+    getState(): Array<Preduzece>;
     postPreduzece(preduzece: Preduzece): void;
-    updatePreduzece(pib: string, preduzecePartial: Partial<Preduzece>): void;
 }

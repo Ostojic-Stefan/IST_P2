@@ -1,6 +1,6 @@
-// import Preduzece from "../Preduzece.js";
-import IRenderable from "../types/IRenderable.js";
-import Component from "./Component.js";
+// import Preduzece from "../Preduzece";
+import IRenderable from "../types/IRenderable";
+import Component from "./Component";
 
 export default class Item<T extends IRenderable<HTMLDivElement>> extends Component<HTMLDivElement> {
     private data: T;

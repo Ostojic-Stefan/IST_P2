@@ -43,11 +43,12 @@ namespace Server.Controllers
         [HttpPost]
         public IActionResult PostPreduzece(PreduzeceDto pred)
         {
+            System.Console.WriteLine(pred.Naziv);
             _repo.PostPreduzece(pred);
             return Ok("Successfully Created");
         }
 
-        [HttpPut("pib")]
+        [HttpPut("{pib}")]
         public IActionResult UpdatePreduzece(string pib, PreduzeceDto preduzece)
         {
             var pred = _repo.GetPreduzeceByPib(pib);

@@ -114,3 +114,8 @@ aside button {
     display: flex;
     flex-direction: column;
 }
+
+.btn-izmeni {
+    margin-top: 20px;
+    width: 150px;
+}

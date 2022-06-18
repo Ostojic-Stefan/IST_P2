@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script type="module" src="./dist/index.js" defer></script>
-    <title>Document</title>
+    <title>IST_P2</title>
 </head>
 <body>
     <header>
@@ -14,6 +15,7 @@
         <div>
             <button id="btn-unesi">Unesi Preduzece</button>
             <button id="btn-prikazi">Prikazi Sva Preduzeca</button>
+            <button id="btn-prikazi">Unesi Fakturu</button>
         </div>
     </header>
     <main class="container">
@@ -22,20 +24,27 @@
                 <h2>Pretrazi</h2>
                 <div class="wrapper">
                     <div class="control">
-                        <input type="radio" name="unos">
+                        <input type="radio" name="unos" id="unos-pib">
                             <span>PIB</span>    
                         </input>
                     </div>
                     <div class="control">
-                        <input type="radio" name="unos">
+                        <input type="radio" name="unos" id="unos-naziv">
                             <span>Naziv</span> 
                         </input>
                     </div>
                 </div>
                 <div class="control">
-                    <input type="text">
+                    <input type="text" id="tekstPretrage">
                 </div>
-                <button>Pretrazi</button>
+                <button id="btn-pretrazi">Pretrazi</button>
+
+                <h2 style="font-size: 16px; margin-top: 48px;">Pogledaj Fakture Za Preduzece: </h2>
+                <div class="control">
+                    <input type="text" id="fakturaPretraga">
+                </div>
+                <button id="btn-fakturaPretraga">Pretrazi</button>
+
             </div>
         </aside>
         <div class="main-area">
@@ -58,6 +67,38 @@
             <span class="companyName">Naziv: </span>
             <span class="address">Adresa: </span>
         </div>
+    </template>
+
+    <template id="single-item-izmeni">
+        <form>
+            <div class="form-control">
+                <label for="ime">Ime: </label>
+                <input type="text" id="ime">
+            </div>
+            <div class="form-control">
+                <label for="prezime">Prezime: </label>
+                <input type="text" id="prezime">
+            </div>
+            <div class="form-control">
+                <label for="telefon">Telefon: </label>
+                <input type="text" id="telefon">
+            </div>
+            <div class="form-control">
+                <label for="email">Email: </label>
+                <input type="email" id="email">
+            </div>
+            <div class="form-control">
+                <label for="naziv">Naziv: </label>
+                <input type="text" id="naziv">
+            </div>
+            <div class="form-control">
+                <label for="adresa">Adresa: </label>
+                <input type="text" id="adresa">
+            </div>
+            <div class="form-control">
+                <button id="izmeni-preduzece">Sacuvaj</button>
+            </div>
+        </form>
     </template>
 
     <template id="item-list">
